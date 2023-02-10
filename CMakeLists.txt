@@ -10,6 +10,7 @@ qt_add_library(${LIB_NAME} STATIC
 
 target_compile_definitions(${LIB_NAME} PUBLIC
     PROJECT_PYTHON_SITELIB="${PROJECT_PYTHON_SITELIB}"
+    PROJECT_PYTHON_BIN="${PROJECT_PYTHON_BIN}"
     Python3_EXECUTABLE="${Python3_EXECUTABLE}"
     Python3_SITEARCH="${Python3_SITEARCH}"
     Python3_SITELIB="${Python3_SITELIB}"

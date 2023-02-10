@@ -59,7 +59,8 @@ void PythonSubprocess::startSubprocess(const QString &program, const QByteArray 
        m_output.append(m_process->readAllStandardOutput());
     });
 
-    m_process->start(Python3_EXECUTABLE, QStringList() << m_separator);
+    QFileInfo info(PROJECT_PYTHON_BIN "/" + program);
+    m_process->start(info.absoluteFilePath(), QStringList() << m_separator);
 }
 
 void PythonSubprocess::printExitCode() const
