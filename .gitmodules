@@ -1,0 +1,3 @@
+[submodule "src/pybind11"]
+	path = src/pybind11
+	url = git@github.com:borco/pybind11.git
