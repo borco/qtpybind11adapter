@@ -18,6 +18,7 @@ target_compile_definitions(${LIB_NAME} PUBLIC
 target_link_libraries(${LIB_NAME} PUBLIC
     Qt6::Core
     pybind11::embed
+    iborcocpputils
 )
 
 target_include_directories(${LIB_NAME} PUBLIC

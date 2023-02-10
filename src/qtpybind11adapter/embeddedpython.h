@@ -5,30 +5,19 @@
 #include <pybind11/embed.h> // everything needed for embedding
 #pragma pop_macro("slots")
 
+#include "iborcocpputils/singleton.h"
+
 #include <QDebug>
 
 namespace qtpybind11adapter {
 
 template <class T>
-class EmbeddedPython
+class EmbeddedPython : public iborcocpputils::Singleton<T>
 {
 public:
     ~EmbeddedPython() {
         pybind11::finalize_interpreter();
         qDebug() << "Deleted embedded python";
-    }
-
-    static T* get() {
-        if (!m_singleton) {
-            m_singleton = new T();
-        }
-        return m_singleton;
-    }
-
-    static void cleanup()
-    {
-        delete m_singleton;
-        m_singleton = nullptr;
     }
 
 protected:
@@ -43,9 +32,6 @@ protected:
         path.attr("insert")(0, Python3_SITELIB);
         path.attr("insert")(0, PROJECT_PYTHON_SITELIB);
     }
-
-private:
-    inline static T* m_singleton = nullptr;
 };
 
 } // qtpybind11adapter
