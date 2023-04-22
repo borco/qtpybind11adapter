@@ -17,8 +17,8 @@ public:
     EmbeddedPythonStdErrOutStreamRedirect();
     ~EmbeddedPythonStdErrOutStreamRedirect();
 
-    QString stdout() const;
-    QString stderr() const;
+    QString stdOut() const;
+    QString stdErr() const;
 
 private:
     pybind11::object m_stdout;

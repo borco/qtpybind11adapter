@@ -25,13 +25,13 @@ EmbeddedPythonStdErrOutStreamRedirect::~EmbeddedPythonStdErrOutStreamRedirect()
     sysm.attr("stderr") = m_stderr;
 }
 
-QString EmbeddedPythonStdErrOutStreamRedirect::stdout() const
+QString EmbeddedPythonStdErrOutStreamRedirect::stdOut() const
 {
     m_stdoutBuffer.attr("seek")(0);
     return QString::fromStdString(m_stdoutBuffer.attr("read")().cast<std::string>());
 }
 
-QString EmbeddedPythonStdErrOutStreamRedirect::stderr() const
+QString EmbeddedPythonStdErrOutStreamRedirect::stdErr() const
 {
     m_stderrBuffer.attr("seek")(0);
     return QString::fromStdString(m_stderrBuffer.attr("read")().cast<std::string>());
