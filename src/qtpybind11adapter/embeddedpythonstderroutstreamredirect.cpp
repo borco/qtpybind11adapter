@@ -1,4 +1,7 @@
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wattributes"
 #include "embeddedpythonstderroutstreamredirect.h"
+#pragma GCC diagnostic pop
 
 namespace py = pybind11;
 
