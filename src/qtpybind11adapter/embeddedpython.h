@@ -28,8 +28,8 @@ protected:
         // configure python import path
         pybind11::object sys = pybind11::module::import("sys");
         pybind11::object path = sys.attr("path");
-        path.attr("insert")(0, Python3_SITEARCH);
-        path.attr("insert")(0, Python3_SITELIB);
+        path.attr("insert")(0, PYTHON3_SITEARCH);
+        path.attr("insert")(0, PYTHON3_SITELIB);
         path.attr("insert")(0, PROJECT_PYTHON_SITELIB);
     }
 };
