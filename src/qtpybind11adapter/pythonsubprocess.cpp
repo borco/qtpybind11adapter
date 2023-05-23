@@ -59,7 +59,13 @@ void PythonSubprocess::startSubprocess(const QString &program, const QByteArray 
        m_output.append(m_process->readAllStandardOutput());
     });
 
-    QFileInfo info(PROJECT_PYTHON_BIN "/" + program);
+#ifdef Q_OS_WIN
+    QString os_program_name = program + ".cmd";
+#else
+    QString os_program_name = program;
+#endif
+
+    QFileInfo info(PROJECT_PYTHON_BIN "/" + os_program_name);
     m_process->start(info.absoluteFilePath(), QStringList() << m_separator);
 }
 
